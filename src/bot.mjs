@@ -3,16 +3,6 @@ import TeleBot from "telebot"
 const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN)
 const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
-bot.on(['/start', '/back'], msg => {
-
-    let replyMarkup = bot.keyboard([
-        ['/buttons', '/inlineKeyboard'],
-        ['/start', '/hide']
-    ], {resize: true});
-
-    return bot.sendMessage(msg.from.id, 'Keyboard example.', {replyMarkup});
-
-});
 
 bot.on('/start', async (msg) => {
     let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
