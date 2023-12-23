@@ -7,11 +7,10 @@ bot.on('/start', async (msg) => {
     const chatId = msg.from.id;
     const text=msg.text;
         await bot.sendMessage(chatId,'Down', {
-            reply_markup:{
-                keyboard:[
-                    [{text:'Заполнить форму', web_app: {url: WebUrlit + 'form'}}]
-                ]
-            }
+            inlineKeyboard:[
+                inlineButton[[{text:'Заполнить форму', web_app: {url: WebUrlit + 'form'}}]]
+            ]
+            
         })
 
 
