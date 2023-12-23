@@ -6,10 +6,11 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 bot.on('/start', async (msg) => {
     const chatId = msg.from.id;
     const text=msg.text;
+    if (text==='/start'){
         await bot.sendMessage(chatId,'Down', {
             reply_markup:{
                 keyboard:[
-                    [{text:'Заполнить форму', web_app: {url: WebUrlit + 'form'}}]
+                    [{text:'Заполнить форму', web_app: {url: WebUrl + 'form'}}]
                 ]
             }
         })
@@ -18,10 +19,11 @@ bot.on('/start', async (msg) => {
         await bot.sendMessage(chatId,'Check up:', {
             reply_markup:{
                 inline_keyboard:[
-                    [{text:'Make a check up', web_app: {url: WebUrlit}}]
+                    [{text:'Make a check up', web_app: {url: WebUrl}}]
                 ]
             }
         })
+    }
 
     if (msg?.web_app_data?.data) {
         try {
