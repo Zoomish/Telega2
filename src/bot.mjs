@@ -3,31 +3,29 @@ import TeleBot from "telebot"
 const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN)
 const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
-bot.on('/start', msg => {
+bot.on(['/start', '/back'], msg => {
 
-    let replyMarkup = bot.inlineKeyboard([
-        [
-            bot.inlineButton('callback', {callback: 'this_is_data'}),
-            bot.inlineButton('inline', {inline: 'some query'})
-        ], [
-            bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})
-        ]
-    ]);
+    let replyMarkup = bot.keyboard([
+        ['/buttons', '/inlineKeyboard'],
+        ['/start', '/hide']
+    ], {resize: true});
 
-    return bot.sendMessage(msg.from.id, 'Down', {replyMarkup});
+    return bot.sendMessage(msg.from.id, 'Keyboard example.', {replyMarkup});
 
 });
 
 bot.on('/start', async (msg) => {
+    let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
     const chatId = msg.from.id;
     const text=msg.text;
-        await bot.sendMessage(chatId,'Check up:', {
-            reply_markup:{
-                inline_keyboard:[
-                    [{text:'Make a check up', web_app: {url: WebUrlit}}]
-                ]
-            }
-        })
+    await bot.sendMessage(chatId,'Down', {
+        reply_markup:{
+            keyboard:[
+                [{text:'Заполнить форму', web_app: {url: WebUrl + 'form'}}]
+            ]
+        }
+    })
+    await bot.sendMessage(chatId,'Check up', replyMarkup)
 
     if (msg?.web_app_data?.data) {
         try {
