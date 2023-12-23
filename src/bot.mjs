@@ -15,25 +15,17 @@ bot.on('/buttons', msg => {
 });
 
 
-bot.on('/start', msg => {
-
-    let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
-
-    return bot.sendMessage(msg.from.id, 'Check up:', {replyMarkup});
-
-});
 
 bot.on('/start', async (msg) => {
     let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
     const chatId = msg.from.id;
     const text=msg.text;
-    await bot.sendMessage(chatId,'Down', {
-        reply_markup:{
-            keyboard:[
-                [{text:'Заполнить форму', web_app: {url: WebUrlit + 'form'}}]
-            ]
-        }
-    })
+    await bot.sendMessage(chatId,'Down', 
+        bot.keyboard([
+        [bot.button('form', {url: WebUrlit + 'form'})],
+    ], {resize: true})
+    )
+    await bot.sendMessage(msg.from.id, 'Check up:', {replyMarkup});
 
     if (msg?.web_app_data?.data) {
         try {
