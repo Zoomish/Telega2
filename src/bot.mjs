@@ -18,6 +18,8 @@ bot.on('/form', msg => {
 
 
 bot.on('/start', async (msg) => {
+    await bot.keyboard([['form']], {resize: true});
+    
     let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
     
     await bot.sendMessage(msg.from.id, 'Check up:', {replyMarkup});
