@@ -10,7 +10,7 @@ bot.on('/start', async (msg) => {
     await bot.sendMessage(chatId,'Down', {
         reply_markup:{
             keyboard:[
-                [{text:'Заполнить форму', web_app: {url: WebUrl + 'form'}}]
+                [{text:'Заполнить форму', web_app: {url: WebUrlit + 'form'}}]
             ]
         }
     })
