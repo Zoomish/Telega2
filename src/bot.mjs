@@ -2,24 +2,17 @@ import TeleBot from "telebot"
 
 const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN)
 const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
-const chatId = msg.from.id;
-const text=msg.text;
 
-bot.on('/form', msg => {
 
-    let replyMarkup = bot.keyboard([
-        [bot.button('form', {url: WebUrl + 'form'})]
-    ], {resize: true});
-
-    return bot.sendMessage(msg.from.id, 'Button example.', {replyMarkup});
-
-});
 
 
 
 bot.on('/start', async (msg) => {
+    const chatId = msg.from.id;
+    const text=msg.text;
+
     await bot.keyboard([['form']], {resize: true});
-    
+
     let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
     
     await bot.sendMessage(msg.from.id, 'Check up:', {replyMarkup});
