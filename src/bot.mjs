@@ -10,9 +10,6 @@ bot.on(['/start', 'audio', 'sticker'], msg => {
   return bot.sendMessage(msg.from.id, 'Bam!');
 });
 bot.on('/start', async msg => {
-    await bot.sendMessage(chatId,'Down')
-
-
-    await bot.sendMessage(chatId,'Check up:',)
+    await bot.sendMessage(msg.from.id,'Down')
 });
 export default bot
