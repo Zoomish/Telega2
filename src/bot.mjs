@@ -9,7 +9,7 @@ bot.on('/start', async (msg) => {
         await bot.sendMessage(chatId,'Down', {
             reply_markup:{
                 keyboard:[
-                    [{text:'Заполнить форму', web_app: {url: WebUrl + 'form'}}]
+                    [{text:'Заполнить форму', web_app: {url: WebUrlit + 'form'}}]
                 ]
             }
         })
@@ -18,7 +18,7 @@ bot.on('/start', async (msg) => {
         await bot.sendMessage(chatId,'Check up:', {
             reply_markup:{
                 inline_keyboard:[
-                    [{text:'Make a check up', web_app: {url: WebUrl}}]
+                    [{text:'Make a check up', web_app: {url: WebUrlit}}]
                 ]
             }
         })
