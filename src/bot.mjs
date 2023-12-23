@@ -6,7 +6,6 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 bot.on('/start', async (msg) => {
     const chatId = msg.from.id;
     const text=msg.text;
-    if (text==='/start'){
         await bot.sendMessage(chatId,'Down', {
             reply_markup:{
                 keyboard:[
@@ -23,7 +22,6 @@ bot.on('/start', async (msg) => {
                 ]
             }
         })
-    }
 
     if (msg?.web_app_data?.data) {
         try {
