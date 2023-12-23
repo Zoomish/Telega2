@@ -5,13 +5,13 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
 
 bot.on('/start', async (msg) => {
-    let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
+    let replyMarkup = bot.inlineKeyboard([['url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'}]]);
     const chatId = msg.from.id;
     const text=msg.text;
     await bot.sendMessage(chatId,'Down', {
         reply_markup:{
             keyboard:[
-                [{text:'Заполнить форму', web_app: {url: WebUrl + 'form'}}]
+                [{text:'Заполнить форму', web_app: {url: WebUrlit + 'form'}}]
             ]
         }
     })
