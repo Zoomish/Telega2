@@ -9,7 +9,6 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
 bot.on('/start', async (msg) => {
     const chatId = msg.from.id;
-    const text=msg.text;
 
     await bot.keyboard([['form']], {resize: true});
 
