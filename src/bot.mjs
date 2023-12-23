@@ -5,7 +5,7 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
 
 bot.on('/start', async (msg) => {
-    let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
+    const replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
     const chatId = msg.from.id;
     const text=msg.text;
     await bot.sendMessage(chatId,'Down', {
