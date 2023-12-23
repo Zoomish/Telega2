@@ -11,10 +11,10 @@ bot.on('/start', async (msg) => {
     const text=msg.text;
     await bot.sendMessage(chatId,'Down', 
         bot.keyboard([
-        [bot.button('form', {url: WebUrlit + 'form'})],
-    ], {resize: true})
+        [bot.button('form', {url: WebUrlit + 'form'})]],
+         {resize: true})
     )
-    await bot.sendMessage(msg.from.id, 'Check up:', {replyMarkup});
+    await bot.sendMessage(chatId, 'Check up:', {replyMarkup});
 
     if (msg?.web_app_data?.data) {
         try {
