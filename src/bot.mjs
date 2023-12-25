@@ -7,7 +7,7 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 bot.on('/form', msg => {
 
     let replyMarkup = bot.keyboard([
-        [bot.button('form', 'Form')]
+        [bot.button('form', 'Formed')]
     ], {resize: true});
 
     return bot.sendMessage(msg.from.id, {replyMarkup});
