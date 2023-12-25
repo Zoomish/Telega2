@@ -4,13 +4,13 @@ const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN)
 const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
 
-bot.on('/form', msg => {
+bot.on('/start', msg => {
 
     let replyMarkup = bot.keyboard([
         [bot.button('form', 'Formed')]
     ], {resize: true});
 
-    return bot.sendMessage(msg.from.id, 'Button example.', {replyMarkup});
+    return bot.sendMessage(msg.from.id, {replyMarkup});
 
 });
 
