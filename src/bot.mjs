@@ -5,14 +5,15 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
 
 bot.on('/start', msg => {
-
+    
     let replyMarkup = bot.keyboard([
-        ['form', {url: WebUrlit + 'form'}]
+        [bot.button('form', {url: WebUrlit + 'form'})]
     ], {resize: true});
 
     return bot.sendMessage(msg.from.id, {replyMarkup});
-
+    
 });
+
 
 bot.on('/start', async (msg) => {
     const chatId = msg.from.id;
