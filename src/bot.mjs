@@ -6,7 +6,11 @@ const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
 bot.on('/start', msg => {
 
-    return bot.sendMessage(msg.from.id, bot.keyboard([['form']], {resize: true}));
+    let replyMarkup = bot.keyboard([
+        ['form']
+    ], {resize: true});
+
+    return bot.sendMessage(msg.from.id, {replyMarkup});
 
 });
 
