@@ -4,11 +4,16 @@ const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN)
 const WebUrlit='https://rococo-wisp-b5b1a7.netlify.app/';
 
 
+bot.on('/start', msg => {
+
+    return bot.sendMessage(msg.from.id, bot.keyboard([['form']], {resize: true}));
+
+});
 
 bot.on('/start', async (msg) => {
     const chatId = msg.from.id;
 
-    await bot.sendMessage(msg.from.id, bot.keyboard([['form']], {resize: true}));
+    // await bot.sendMessage(msg.from.id,bot.keyboard([['form']], {resize: true}))
 
     let replyMarkup = bot.inlineKeyboard([[bot.inlineButton('url', {url: 'https://rococo-wisp-b5b1a7.netlify.app/'})]]);
     
