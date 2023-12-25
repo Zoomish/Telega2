@@ -14,16 +14,6 @@ bot.on('/start', msg => {
 
 });
 
-// Buttons
-bot.on('/start', msg => {
-
-    let replyMarkup = bot.keyboard([[bot.button('formed', 'form')]], {resize: true});
-
-    return bot.sendMessage(msg.from.id, 'Button example.', {replyMarkup});
-
-});
-
-
 bot.on('/start', async (msg) => {
     const chatId = msg.from.id;
 
