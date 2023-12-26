@@ -23,7 +23,7 @@ bot.on('/buttons', msg => {
         ['/back', '/hide']
     ], {resize: true});
 
-    return bot.sendMessage(msg.from.id,'', {replyMarkup});
+    return bot.sendMessage(msg.from.id, 'Button example.', {replyMarkup});
 
 });
 
